@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/* Loading required fonts */
+@font-face {
+  font-family: 'NonNaturalMono';
+  src: url('https://www.dragonfly.xyz/fonts/Non-Natural-Mono-Light/NONNaturalMono-Light.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NONNaturalGrotesk';
+  src: url('https://www.dragonfly.xyz/fonts/Non-Natural-Grotesk-Bold/NONNaturalGrotesk-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NONNaturalGrotesk';
+  src: url('https://www.dragonfly.xyz/fonts/Non-Natural-Grotesk-Regular/NONNaturalGrotesk-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mondwest';
+  src: url('https://www.dragonfly.xyz/fonts/Mondwest-Regular/Mondwest-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  --font-sans: 'NONNaturalGrotesk', sans-serif;
+  --font-mono: 'NonNaturalMono', monospace;
+  --font-pixel: 'Mondwest', sans-serif;
+
+  --color-brand-dark: #0a0a0a;
+  --color-brand-panel: #0d0d0d;
+}
+
+:root {
+  --brand-dark: #0a0a0a;
+  --brand-panel: #0d0d0d;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+}
+
+.wireframe-grid {
+  background-image: linear-gradient(rgba(255, 50, 50, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 50, 50, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle, black 40%, transparent 80%);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@theme inline {
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-panel: var(--brand-panel);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+}
+
+.wireframe-grid {
+  background-image: linear-gradient(rgba(255, 50, 50, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 50, 50, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle, black 40%, transparent 80%);
+}
+
+html {
+  scroll-behavior: smooth;
+}
