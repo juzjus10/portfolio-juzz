@@ -10,48 +10,39 @@ import Footer from "./components/Footer";
 export default function Home() {
   return (
     <>
-
-
-
       <Navigation />
       <Hero />
 
-      {/* Divider */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-8"></div>
-
-      {/* Main Content Grid */}
-      <section className="relative z-10 h-[100vh] container mx-auto my-auto px-6 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+      <main className="relative z-10 overflow-hidden">
+        <section id="work" className="relative">
           <FeaturedWork />
+        </section>
+
+        <div className="section-divider" />
+
+        <section id="services" className="relative">
           <Services />
-        </div>
-      </section>
+        </section>
 
-      {/* Divider */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-8"></div>
+        <div className="section-divider" />
 
-      {/* Work Experience Section */}
-      <section className="relative z-10 w-full border-t border-white/5">
-        <WorkExperience />
-      </section>
+        <section id="experience" className="relative">
+          <WorkExperience />
+        </section>
 
-      {/* Divider */}
-      <div className="w-full h-px bg-white/10"></div>
+        <div className="section-divider" />
 
-      {/* Education Section */}
-      <section className="relative z-10 w-full">
-        <Education />
-      </section>
+        <section id="education" className="relative">
+          <Education />
+        </section>
 
-      {/* Divider */}
-      <div className="w-full h-px bg-white/10"></div>
+        <div className="section-divider" />
 
-      {/* Contact Form Section */}
-      <section className="relative z-10 w-full">
-        <ContactForm />
-      </section>
+        <section id="contact" className="relative">
+          <ContactForm />
+        </section>
+      </main>
 
-      {/* Footer */}
       <Footer />
     </>
   );

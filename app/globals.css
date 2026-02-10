@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Loading required fonts */
 @font-face {
   font-family: 'NonNaturalMono';
   src: url('https://www.dragonfly.xyz/fonts/Non-Natural-Mono-Light/NONNaturalMono-Light.woff2') format('woff2');
@@ -41,22 +40,8 @@
 :root {
   --brand-dark: #0a0a0a;
   --brand-panel: #0d0d0d;
-}
-
-.glass-effect {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-}
-
-.wireframe-grid {
-  background-image: linear-gradient(rgba(255, 50, 50, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 50, 50, 0.1) 1px, transparent 1px);
-  background-size: 40px 40px;
-  mask-image: radial-gradient(circle, black 40%, transparent 80%);
-}
-
-html {
-  scroll-behavior: smooth;
+  --brand-line: rgba(255, 255, 255, 0.12);
+  --brand-rose: #f6b5c8;
 }
 
 @theme inline {
@@ -64,18 +49,124 @@ html {
   --color-brand-panel: var(--brand-panel);
 }
 
+html {
+  scroll-behavior: smooth;
+  background: var(--brand-dark);
+}
+
+body {
+  background:
+    radial-gradient(circle at 12% -18%, rgba(255, 255, 255, 0.09), ),
+    radial-gradient(circle at 88% -14%, rgba(255, 255, 255, 0.07), ),
+    var(--brand-dark);
+}
+
 .glass-effect {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
 }
 
 .wireframe-grid {
-  background-image: linear-gradient(rgba(255, 50, 50, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 50, 50, 0.1) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
   mask-image: radial-gradient(circle, black 40%, transparent 80%);
 }
 
-html {
-  scroll-behavior: smooth;
+.section-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, var(--brand-line), transparent);
+}
+
+.blur-reveal-word {
+  will-change: transform, opacity, filter;
+}
+
+.texture-noise {
+  position: relative;
+}
+
+.texture-noise::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+.ascii-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.ascii-card::before,
+.ascii-card::after {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+
+.ascii-card::before {
+  content: "";
+  z-index: 0;
+  opacity: 0.48; 
+  background-size: auto, auto, auto;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: 88% 20%, 93% 76%, right top;
+  mix-blend-mode: screen;
+  filter: contrast(1.15) brightness(1.1);
+}
+
+.ascii-card::after {
+  content: none !important;
+  display: none !important;
+}
+
+.ascii-card:hover::before {
+  opacity: 0.62;
+}
+
+/* Hard override: disable any legacy animated ASCII overlays */
+.ascii-card::before,
+.ascii-card::after {
+  animation: none !important;
+}
+
+.ascii-card::after {
+  content: none !important;
+  background-image: none !important;
+}
+
+@media (max-width: 1023px) {
+  .ascii-card::before {
+    opacity: 0.44;
+  }
+
+  .ascii-card::after {
+    content: none !important;
+    display: none !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0b0b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #fafafa66, #f6b5c844);
+  border-radius: 999px;
+  border: 2px solid #0b0b0b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #fafafa88, #f6b5c866);
 }

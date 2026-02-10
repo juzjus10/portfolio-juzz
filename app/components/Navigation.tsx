@@ -3,6 +3,14 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
+const navItems = [
+  { label: "WORK", href: "#work" },
+  { label: "SERVICES", href: "#services" },
+  { label: "EXPERIENCE", href: "#experience" },
+  { label: "EDUCATION", href: "#education" },
+  { label: "CONTACT", href: "#contact" },
+];
+
 export default function Navigation() {
   const navRef = useRef<HTMLElement>(null);
 
@@ -29,13 +37,13 @@ export default function Navigation() {
       ref={navRef}
       className="hidden lg:flex fixed right-8 top-1/2 -translate-y-1/2 flex-col items-end gap-2 z-50 mix-blend-difference"
     >
-      {["WORK", "EDUCATION", "SERVICES", "CONTACT"].map((text, i) => (
+      {navItems.map((item, i) => (
         <a
           key={i}
-          href="#"
-          className="nav-link text-2xl font-bold text-gray-400 hover:text-white transition-colors duration-300 uppercase tracking-widest cursor-pointer"
+          href={item.href}
+          className="nav-link text-xl font-bold text-gray-400 hover:text-white transition-colors duration-300 uppercase tracking-[0.2em] cursor-pointer"
         >
-          {text}
+          {item.label}
         </a>
       ))}
     </nav>
