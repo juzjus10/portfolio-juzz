@@ -131,7 +131,7 @@ export default function Education() {
                 </div>
                 <div className="ascii-card border border-white/10 bg-black/30 px-4 py-3">
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gray-500">Degree Type</p>
-                  <p className="mt-2 text-white">Undergraduate</p>
+                  <p className="mt-2 text-white">Bachelor's Degree</p>
                 </div>
                 <div className="ascii-card border border-white/10 bg-black/30 px-4 py-3">
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-gray-500">Focus</p>
