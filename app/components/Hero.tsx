@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 import TextType from "./TypingText";
 import AsciiShader from "./AsciiShader";
+import AsciiImageShader from "./AsciiImageShader";
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -120,19 +120,12 @@ export default function Hero() {
         />
       </div>
 
-      {/* 2. Profile Image (Middle Layer) */}
+      {/* 2. Profile Image (Middle Layer) — rendered as ASCII via OGL */}
       <div
         ref={imageRef}
         className="relative z-10 w-full max-w-2xl aspect-[3/4] md:aspect-square flex items-center justify-center"
       >
-        <Image
-          src="/juzz_profile.png"
-          alt="Justine Profile"
-          fill
-          className="object-cover object-center grayscale hover:grayscale-0 transition-all duration-700"
-          priority
-        />
-
+        <AsciiImageShader src="/juzz_profile.png" />
       </div>
 
       {/* 3. WEB DEVELOPER (Foreground Text) */}
